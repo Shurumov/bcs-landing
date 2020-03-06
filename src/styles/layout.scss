@@ -1,0 +1,19 @@
+@import "breakpoints";
+
+.container{
+  background: #FFF8CC;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: $lg;
+  @media (max-width: $lg) {
+    padding: 0 50px;
+  }
+  @media (max-width: $md) {
+    padding: 0 38px;
+  }
+  @media (max-width: $sm) {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,63 @@
+@import "styles/index";
+
+.page-header {
+  padding: 13px 0;
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    margin-right: 42px;
+    width: 161px;
+  }
+
+  &__open {
+    font-size: 12px;
+    line-height: 164%;
+    color: $main-color;
+  }
+
+  &__divider {
+    flex-grow: 1;
+  }
+
+  &__number {
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-color;
+  }
+
+  @media (max-width: 560px) {
+    display: none;
+  }
+}
+
+.page-header-mobile {
+  background-color: $main-color;
+  display: none;
+
+  &__top {
+    padding: 13px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom {
+    padding: 4px 20px 20px 20px;
+    font-size: 16px;
+    line-height: 124%;
+    color: $white;
+  }
+
+  &__open {
+    font-size: 12px;
+    line-height: 164%;
+    color: $white;
+  }
+
+  @media (max-width: 560px) {
+    display: block;
+  }
+}
