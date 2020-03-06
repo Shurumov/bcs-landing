@@ -1,0 +1,17 @@
+@import "styles/index";
+
+.button {
+  height: 50px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-navy-blue;
+  border: none;
+  border-radius: 25px;
+
+  font-size: 10px;
+  line-height: 18px;
+  color: $white;
+  text-transform: uppercase;
+}
