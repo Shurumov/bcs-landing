@@ -1,12 +1,11 @@
 @import "breakpoints";
 
 .container{
-  background: #FFF8CC;
 }
 
 .content {
   margin: 0 auto;
-  max-width: $lg;
+  max-width: $xl;
   @media (max-width: $lg) {
     padding: 0 50px;
   }
