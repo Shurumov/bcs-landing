@@ -1,0 +1,29 @@
+@import "styles/index";
+
+.slider {
+  &_bgc {
+    &_yellow {
+      background-color: $slider-yellow;
+    }
+
+    &_coral {
+      background-color: $slider-coral;
+    }
+
+    &_green {
+      background-color: $slider-green;
+    }
+
+    &_blue {
+      background-color: $slider-blue;
+    }
+
+    &_gray {
+      background-color: $slider-gray;
+    }
+
+    &_salad {
+      background-color: $slider-salad;
+    }
+  }
+}
