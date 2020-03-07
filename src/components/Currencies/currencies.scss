@@ -1,0 +1,80 @@
+@import "styles/index";
+
+.currencies {
+  display: flex;
+  max-height: 440px;
+  overflow: hidden;
+  transition: 2s ease;
+  &_open {
+    max-height: 1000px;
+  }
+
+  &__left {
+    padding: 120px 78px;
+    width: 384px;
+    background-color: $gray;
+    box-sizing: border-box;
+  }
+
+  &__right {
+    padding: 80px 102px 30px 66px;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 40px;
+    color: $main-color;
+  }
+
+  &__time {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    margin-top: 90px;
+  }
+
+  &__table {
+    &-row {
+      display: flex;
+    }
+
+    &-cell {
+      width: 33%;
+      padding: 20px 20px;
+      font-size: 24px;
+      line-height: 30px;
+      text-transform: uppercase;
+      box-sizing: border-box;
+    }
+
+    &-th {
+      color: $primary-navy-blue;
+      font-size: 10px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__expand {
+    background-color: $white;
+    position: sticky;
+    bottom: 0;
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &-text {
+      margin-left: 24px;
+      font-size: 10px;
+      line-height: 18px;
+      color: $primary-navy-blue;
+      letter-spacing: 1px;
+    }
+  }
+}
