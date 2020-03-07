@@ -16,14 +16,16 @@ export class Header extends PureComponent {
           </header>
         </div>
         <header className="page-header-mobile">
-          <div className="page-header-mobile__top">
-            <MobileLogo/>
-            <div className="page-header-mobile__open">
-              Открыть счет
+          <div className="content">
+            <div className="page-header-mobile__top">
+              <MobileLogo/>
+              <div className="page-header-mobile__open">
+                Открыть счет
+              </div>
             </div>
-          </div>
-          <div className="page-header-mobile__bottom">
-            Финансовые услуги на рынке ценных бумаг для компаний
+            <div className="page-header-mobile__bottom">
+              Финансовые услуги на рынке ценных бумаг для компаний
+            </div>
           </div>
         </header>
       </div>

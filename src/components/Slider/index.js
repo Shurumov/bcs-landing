@@ -1,15 +1,13 @@
 import React, {PureComponent} from "react";
 import PropTypes from 'prop-types'
 import cn from 'classnames';
-import AwesomeSliderBase from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import {Button} from "components";
 
 import data from './slides'
 import './slider.scss'
 
-const AwesomeSlider = withAutoplay(AwesomeSliderBase);
 
 const colorsClass = [
   'slider_bgc_yellow',
@@ -58,12 +56,12 @@ const oneSlide = ({item, order}) => {
             ))}
           </ul>
           <Button
-            className="mt-7"
+            className="mt-7 slider__left-button"
           >
             Консультация
           </Button>
         </div>
-        <div>
+        <div className="slider__right">
           {Object.keys(item.img).map(key => (
             <img
               className={`slider__slide-img slider__slide-img_${key}`}
@@ -72,6 +70,11 @@ const oneSlide = ({item, order}) => {
               key={item.img[key]}
             />
           ))}
+          <Button
+            className="slider__right-button"
+          >
+            Консультация
+          </Button>
         </div>
       </div>
     </div>
@@ -98,14 +101,11 @@ export class Slider extends PureComponent {
     const {activeIndex} = this.state;
     return (
       <div
-        className="container"
+        className="container slider_container"
         style={style}
       >
         <div className="slider">
           <AwesomeSlider
-            // play={true}
-            interval={3000}
-            cancelOnInteraction={false}
             selected={this.state.activeIndex}
             bullets={false}
             onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}

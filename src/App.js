@@ -7,11 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Slider
-        style={{
-          marginTop: '-56px'
-        }}
-      />
+      <Slider/>
     </div>
   );
 }
