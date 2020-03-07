@@ -14,23 +14,30 @@ const colorsClass = [
   'slider_bgc_coral',
   'slider_bgc_green',
   'slider_bgc_blue',
-  'slider_bgc_gray',
+  'slider_bgc_purple',
   'slider_bgc_salad',
 ];
 
+const activeColorsClass = [
+  'slider_bgc_marker-yellow',
+  'slider_bgc_marker-coral',
+  'slider_bgc_marker-green',
+  'slider_bgc_marker-blue',
+  'slider_bgc_marker-purple',
+  'slider_bgc_marker-salad',
+];
 
-const BulletComponent = (props) => {
-  const {onClick, bgc} = props;
+
+const BulletComponent = ({index, activeIndex, item, onSlideChange}) => {
   return (
     <div
-      className={cn('slider__bullet', bgc)}
-      style={{
-        margin: '0 2px',
-      }}
-      onClick={onClick}
-    >
-      {bgc}
-    </div>
+      className={cn(
+        "slider__bullet-point",
+        index === activeIndex ? activeColorsClass[index] : ''
+      )}
+      onClick={() => onSlideChange(index)}
+      key={item + index}
+    />
   )
 };
 
@@ -107,9 +114,9 @@ export class Slider extends PureComponent {
         <div className="slider">
           <AwesomeSlider
             selected={this.state.activeIndex}
-            bullets={false}
             onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}
             organicArrows={false}
+            bullets={false}
           >
             {(data || []).map((item, order) => (
               oneSlide({item, order})
@@ -129,6 +136,16 @@ export class Slider extends PureComponent {
                   {data[index].link}
                 </div>
               ))}
+            </div>
+            <div className="slider__bullet-point_wrapper">
+              {(data || []).map((item, index) => (
+                BulletComponent({
+                  item,
+                  index,
+                  activeIndex,
+                  onSlideChange: this.onSlideChange
+                }
+                )))}
             </div>
           </div>
         </div>
