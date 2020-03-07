@@ -1,14 +1,15 @@
 import React, {PureComponent} from "react";
 import PropTypes from 'prop-types'
 import cn from 'classnames';
-import BaseSlider from '@farbenmeer/react-spring-slider';
-import AwesomeSlider from 'react-awesome-slider';
+import AwesomeSliderBase from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
-
 import {Button} from "components";
 
 import data from './slides'
 import './slider.scss'
+
+const AwesomeSlider = withAutoplay(AwesomeSliderBase);
 
 const colorsClass = [
   'slider_bgc_yellow',
@@ -18,6 +19,7 @@ const colorsClass = [
   'slider_bgc_gray',
   'slider_bgc_salad',
 ];
+
 
 const BulletComponent = (props) => {
   const {onClick, bgc} = props;
@@ -35,6 +37,7 @@ const BulletComponent = (props) => {
 };
 
 const oneSlide = ({item, order}) => {
+
   return (
     <div
       className={cn('slider__slide', colorsClass[order])}
@@ -61,7 +64,14 @@ const oneSlide = ({item, order}) => {
           </Button>
         </div>
         <div>
-          <img src={item.img} alt=""/>
+          {Object.keys(item.img).map(key => (
+            <img
+              className={`slider__slide-img slider__slide-img_${key}`}
+              src={item.img[key]}
+              alt=""
+              key={item.img[key]}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -84,7 +94,7 @@ export class Slider extends PureComponent {
   };
 
   render() {
-    const { style } = this.props;
+    const {style} = this.props;
     const {activeIndex} = this.state;
     return (
       <div
@@ -93,6 +103,9 @@ export class Slider extends PureComponent {
       >
         <div className="slider">
           <AwesomeSlider
+            // play={true}
+            interval={3000}
+            cancelOnInteraction={false}
             selected={this.state.activeIndex}
             bullets={false}
             onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}

@@ -5,12 +5,42 @@
   height: 520px;
   &__slide{
     width: 100%;
+    &-img {
+      display: none;
+      &_xl {
+        display: block;
+        @media (max-width: $xl) {
+          display: none;
+        }
+      }
+      &_lg {
+        display: none;
+        @media (max-width: $xl - 1) and (min-width: $lg){
+          display: block;
+        }
+      }
+      &_md {
+        display: none;
+        @media (max-width: $lg - 1) and (min-width: $md){
+          display: block;
+        }
+      }
+      &_sm {
+        display: none;
+        @media (max-width: $md - 1) {
+          display: block;
+        }
+      }
+    }
   }
   &__left {
     max-width: 588px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: $lg) {
+      max-width: 472px;
+    }
   }
   &__item {
     height: 100%;
@@ -63,7 +93,7 @@
   &__bullet {
     padding: 0 20px;
     margin: 0 12px;
-    width: 140px;
+    max-width: 140px;
     height: 60px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
@@ -77,15 +107,28 @@
     align-items: center;
     flex-wrap: wrap;
     cursor: pointer;
+    &:first-of-type{
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    @media (max-width: $xl) {
+      padding: 0 10px;
+      width: 126px;
+      margin: 0 5px;
+    }
     &_wrapper {
-      margin-left: -12px;
-      margin-right: -12px;
-      position: absolute;
-      top: 100%;
       display: flex;
       justify-content: space-between;
+      @media (max-width: $lg) {
+        display: none;
+      }
     }
   }
+
+
   &_bgc {
     &_yellow {
       background-color: $slider-yellow;
@@ -133,4 +176,10 @@
 
 .awssld {
   height: 520px;
+  &__content {
+    background-color: transparent;
+  }
+  &__timer {
+    height: 0;
+  }
 }
