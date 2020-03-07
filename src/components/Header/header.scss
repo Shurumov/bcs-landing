@@ -5,6 +5,11 @@
   display: flex;
   align-items: center;
 
+  &_container {
+    position: relative;
+    z-index: 10;
+  }
+
   &__logo {
     margin-right: 42px;
     width: 161px;

@@ -3,6 +3,9 @@
 .slider {
   position: relative;
   height: 520px;
+  &__slide{
+    width: 100%;
+  }
   &__left {
     max-width: 588px;
     display: flex;
@@ -126,4 +129,8 @@
       }
     }
   }
+}
+
+.awssld {
+  height: 520px;
 }

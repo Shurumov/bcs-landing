@@ -1,8 +1,11 @@
 import React, {PureComponent} from "react";
+import PropTypes from 'prop-types'
 import cn from 'classnames';
 import BaseSlider from '@farbenmeer/react-spring-slider';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
-import { Button } from "components";
+import {Button} from "components";
 
 import data from './slides'
 import './slider.scss'
@@ -34,30 +37,25 @@ const BulletComponent = (props) => {
 const oneSlide = ({item, order}) => {
   return (
     <div
-      className={colorsClass[order]}
+      className={cn('slider__slide', colorsClass[order])}
       key={item.link}
     >
       <div className="content slider__item">
         <div className="slider__left">
-            <h2 className="slider__item-title">{item.title}</h2>
-            <div className="slider__item-subtitle">{item.subtitle}</div>
-            <ul className="slider__advantages-list">
-              {item.advantages.map(advantage => (
-                <li
-                  className="slider__advantages-list-item"
-                  key={advantage}
-                >
-                  {advantage}
-                </li>
-              ))}
-            </ul>
+          <h2 className="slider__item-title">{item.title}</h2>
+          <div className="slider__item-subtitle">{item.subtitle}</div>
+          <ul className="slider__advantages-list">
+            {item.advantages.map(advantage => (
+              <li
+                className="slider__advantages-list-item"
+                key={advantage}
+              >
+                {advantage}
+              </li>
+            ))}
+          </ul>
           <Button
-            style={{
-              position: 'absolute',
-              zIndex: 1000
-            }}
-            onClick={() => {
-              console.log(1);}}
+            className="mt-7"
           >
             Консультация
           </Button>
@@ -71,6 +69,10 @@ const oneSlide = ({item, order}) => {
 };
 
 export class Slider extends PureComponent {
+  static propTypes = {
+    style: PropTypes.object
+  };
+
   state = {
     activeIndex: 0
   };
@@ -82,24 +84,24 @@ export class Slider extends PureComponent {
   };
 
   render() {
+    const { style } = this.props;
     const {activeIndex} = this.state;
     return (
       <div
-        className={"container"}
+        className="container"
+        style={style}
       >
         <div className="slider">
-          <BaseSlider
-            activeIndex={this.state.activeIndex}
-            hasBullets
-            onSlideChange={this.onSlideChange}
-            // BulletComponent={props => BulletComponent({...props, bgc: colorsClass[index]})}
-            BulletComponent={() => <div/>}
-            // ArrowComponent={ArrowComponent}
+          <AwesomeSlider
+            selected={this.state.activeIndex}
+            bullets={false}
+            onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}
+            organicArrows={false}
           >
             {(data || []).map((item, order) => (
               oneSlide({item, order})
             ))}
-          </BaseSlider>
+          </AwesomeSlider>
           <div className="content">
             <div className="slider__bullet_wrapper">
               {(data || []).map((item, index) => (

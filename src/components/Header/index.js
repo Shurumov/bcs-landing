@@ -6,7 +6,7 @@ import './header.scss'
 export class Header extends PureComponent {
   render() {
     return (
-      <div className="container">
+      <div className="container page-header_container">
         <div className="content">
           <header className="page-header">
             <Logo className="page-header__logo"/>
