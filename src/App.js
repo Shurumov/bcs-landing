@@ -8,9 +8,6 @@ function App() {
     <div className="App">
       <Header/>
       <Slider/>
-      <Button>
-        Консультация
-      </Button>
     </div>
   );
 }
