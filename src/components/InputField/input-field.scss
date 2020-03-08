@@ -26,8 +26,11 @@
     line-height: 30px;
     color: #333;
     text-align: right;
+    font-family: "Geometria", Arial, sans-serif;
+    font-style: normal;
     &:focus {
       outline: none;
     }
   }
 }
+

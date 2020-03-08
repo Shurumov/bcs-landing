@@ -38,7 +38,7 @@ export class InputField extends PureComponent {
           className="input-field__item"
           suffix=" Р"
           precision={4}
-          thousandSeparator="."
+          thousandSeparator=" "
           decimalSeparator=","
           inputType={type}
         />
