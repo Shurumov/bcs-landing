@@ -1,0 +1,49 @@
+@import "styles/index";
+.currencies-slider {
+  &__row {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    line-height: 23px;
+    &_th{
+      color: $primary-navy-blue;
+      text-transform: uppercase;
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
+
+  &__flag {
+    margin-right: 10px;
+  }
+
+  &__arrows {
+    margin: 0 auto;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    &-left {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    &-right {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}

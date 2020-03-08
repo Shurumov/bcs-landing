@@ -1,0 +1,44 @@
+[
+  {
+    "currency": "USD",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/usd.svg"
+  },
+  {
+    "currency": "EUR",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/eur.svg"
+  },
+  {
+    "currency": "CNY",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/cny.svg"
+  },
+  {
+    "currency": "GPB",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/gpb.svg"
+  },
+  {
+    "currency": "JPN",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/jpn.svg"
+  },
+  {
+    "currency": "TRY",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/try.svg"
+  },
+  {
+    "currency": "KAZ",
+    "buy": "63,2725",
+    "sell": "65,4321",
+    "link": "/images/countries/kaz.svg"
+  }
+]

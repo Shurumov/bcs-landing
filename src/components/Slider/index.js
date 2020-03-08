@@ -97,9 +97,21 @@ export class Slider extends PureComponent {
     activeIndex: 0
   };
 
+  componentDidMount() {
+    setInterval(this.toggleSlide, 6000)
+  }
+
   onSlideChange = index => {
     this.setState({
       activeIndex: index
+    })
+  };
+
+  toggleSlide = () => {
+    const {activeIndex} = this.state;
+    const newIndex = activeIndex === data.length - 1 ? 0 : activeIndex + 1;
+    this.setState({
+      activeIndex: newIndex
     })
   };
 
@@ -117,6 +129,7 @@ export class Slider extends PureComponent {
             onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}
             organicArrows={false}
             bullets={false}
+            mobileTouch={true}
           >
             {(data || []).map((item, order) => (
               oneSlide({item, order})
@@ -140,11 +153,11 @@ export class Slider extends PureComponent {
             <div className="slider__bullet-point_wrapper">
               {(data || []).map((item, index) => (
                 BulletComponent({
-                  item,
-                  index,
-                  activeIndex,
-                  onSlideChange: this.onSlideChange
-                }
+                    item,
+                    index,
+                    activeIndex,
+                    onSlideChange: this.onSlideChange
+                  }
                 )))}
             </div>
           </div>

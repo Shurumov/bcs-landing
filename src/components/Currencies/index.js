@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import cn from 'classnames'
-import {Button} from 'components'
+import {Button, CurrenciesSlider} from 'components'
 import {ReactComponent as Expand} from './expand.svg'
 import {ReactComponent as Arrow} from './arrow-up.svg'
 
@@ -74,6 +74,16 @@ export class Currencies extends Component {
                 <div className="currencies__expand-text">{menuIsOpen ? 'Свернуть' : 'Развернуть'}</div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="currencies-mobile">
+          <div className="content">
+
+            <div className="currencies__title">Курс валют</div>
+            <div className="currencies__time">23.10.2019 10:34:28 (мск)</div>
+            <CurrenciesSlider
+              className="mt-5"
+            />
           </div>
         </div>
       </div>

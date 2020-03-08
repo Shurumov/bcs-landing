@@ -20,9 +20,10 @@
   transition: 0.5s ease;
   cursor: pointer;
   &:hover {
-    opacity: 0.9;
+    background-color: $main-color;
   }
   &:active {
-    opacity: 0.8;
+    background-color: $main-color;
+    opacity: 0.9;
   }
 }
