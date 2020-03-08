@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames'
 import {Button} from 'components'
 import {ReactComponent as Expand} from './expand.svg'
+import {ReactComponent as Arrow} from './arrow-up.svg'
 
 import data from './data'
 import './currencies.scss'
@@ -47,9 +48,21 @@ export class Currencies extends Component {
                 </div>
                 {data.map(item => (
                   <div className="currencies__table-row" key={item.currency}>
-                    <div className="currencies__table-cell">{item.currency}</div>
-                    <div className="currencies__table-cell">{item.buy}</div>
-                    <div className="currencies__table-cell">{item.sell}</div>
+                    <div className="currencies__table-cell">
+                      <img
+                        className="currencies__flag"
+                        src={item.link} alt=""
+                      />
+                      {item.currency}
+                    </div>
+                    <div className="currencies__table-cell">
+                      <Arrow className="currencies__arrow-dynamics"/>
+                      {item.buy}
+                    </div>
+                    <div className="currencies__table-cell">
+                      <Arrow className="currencies__arrow-dynamics"/>
+                      {item.sell}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -58,7 +71,7 @@ export class Currencies extends Component {
                 onClick={this.toggleMenu}
               >
                 <Expand/>
-                <div className="currencies__expand-text">Свернуть</div>
+                <div className="currencies__expand-text">{menuIsOpen ? 'Свернуть' : 'Развернуть'}</div>
               </div>
             </div>
           </div>

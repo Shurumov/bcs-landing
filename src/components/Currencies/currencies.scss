@@ -5,8 +5,9 @@
   max-height: 440px;
   overflow: hidden;
   transition: 2s ease;
+  border: 1px solid $gray;
   &_open {
-    max-height: 1000px;
+    max-height: 700px;
   }
 
   &__left {
@@ -14,11 +15,19 @@
     width: 384px;
     background-color: $gray;
     box-sizing: border-box;
+    @media (max-width: $lg) {
+      width: 301px;
+      padding: 120px 40px;
+    }
   }
 
   &__right {
-    padding: 80px 102px 30px 66px;
+    position: relative;
+    padding: 80px 0px 30px 126px;
     flex-grow: 1;
+    @media (max-width: $lg) {
+      padding: 80px 0px 30px 64px;
+    }
   }
 
   &__title {
@@ -34,6 +43,19 @@
     text-transform: uppercase;
   }
 
+  &__flag {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__arrow-dynamics {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   &__button {
     margin-top: 90px;
   }
@@ -44,6 +66,7 @@
     }
 
     &-cell {
+      position: relative;
       width: 33%;
       padding: 20px 20px;
       font-size: 24px;
@@ -62,8 +85,10 @@
 
   &__expand {
     background-color: $white;
-    position: sticky;
+    position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
     padding: 35px 0;
     display: flex;
     justify-content: center;
