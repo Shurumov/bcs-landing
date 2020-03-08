@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
 import PropTypes from 'prop-types';
 import cn from 'classnames'
+import data from './data'
 
-import { InputField } from 'components';
+import {InputField, FlagSelect} from 'components';
 
 import './calculator.scss'
 
@@ -13,7 +14,6 @@ export class Calculator extends PureComponent {
 
   render() {
     const {className} = this.props;
-
     return (
       <div className="container">
         <div className="content">
@@ -23,8 +23,12 @@ export class Calculator extends PureComponent {
             </h2>
             <InputField
               label="Валюта"
-              name="currency"
-              Node={<div>1</div>}
+              Node={
+                <FlagSelect
+                  className="ml-2"
+                  options={data}
+                />
+              }
             />
           </div>
         </div>

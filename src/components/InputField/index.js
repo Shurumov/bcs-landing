@@ -20,7 +20,7 @@ export class InputField extends PureComponent {
   };
 
   render() {
-    const {style, className, Node, label, name, type} = this.props;
+    const {style, className, Node, label, type} = this.props;
 
     return (
       <div
@@ -29,7 +29,6 @@ export class InputField extends PureComponent {
       >
         <label
           className="input-field__label"
-          htmlFor={name}
         >
           {label}
           {Node}

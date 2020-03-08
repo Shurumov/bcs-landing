@@ -1,0 +1,30 @@
+[
+  {
+    "value": "USD",
+    "img": "/images/countries/usd.svg"
+  },
+  {
+    "value": "EUR",
+    "img": "/images/countries/eur.svg"
+  },
+  {
+    "value": "CNY",
+    "img": "/images/countries/cny.svg"
+  },
+  {
+    "value": "GPB",
+    "img": "/images/countries/gpb.svg"
+  },
+  {
+    "value": "JPN",
+    "img": "/images/countries/jpn.svg"
+  },
+  {
+    "value": "TRY",
+    "img": "/images/countries/try.svg"
+  },
+  {
+    "value": "KAZ",
+    "img": "/images/countries/kaz.svg"
+  }
+]
