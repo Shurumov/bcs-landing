@@ -19,7 +19,7 @@
   }
 
   &__item {
-    flex-grow: 1;
+    max-width: 50%;
     border: none;
     cursor: pointer;
     font-size: 24px;

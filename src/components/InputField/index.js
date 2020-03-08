@@ -13,14 +13,16 @@ export class InputField extends PureComponent {
     label: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
-    Node: <Fragment/>
+    Node: <Fragment/>,
+    onChange: Function.prototype
   };
 
   render() {
-    const {style, className, Node, label, type} = this.props;
+    const {style, className, Node, label, type, suffix} = this.props;
 
     return (
       <div
@@ -35,7 +37,7 @@ export class InputField extends PureComponent {
         </label>
         <CurrencyInput
           className="input-field__item"
-          suffix=" Р"
+          suffix={` ${suffix}`}
           precision={4}
           thousandSeparator=" "
           decimalSeparator=","

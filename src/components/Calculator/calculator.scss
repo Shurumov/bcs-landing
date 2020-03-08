@@ -1,7 +1,46 @@
+@import "styles/index";
+
 .calculator {
   &__title {
+    display: block;
     font-size: 36px;
     line-height: 40px;
     font-weight: normal;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__left {
+    flex-grow: 1;
+    max-width: 485px;
+  }
+
+  &__right {
+    flex-grow: 1;
+    max-width: 485px;
+  }
+
+  &__result {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid $border-gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &-label {
+      font-size: 12px;
+      line-height: 140%;
+      color: $text-gray;
+    }
+    &-value {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    &_total {
+      color: $primary-navy-blue;
+    }
   }
 }

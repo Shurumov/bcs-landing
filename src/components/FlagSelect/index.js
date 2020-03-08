@@ -7,16 +7,22 @@ import './flag-select.scss'
 
 export class FlagSelect extends PureComponent {
   static propTypes = {
+    onChange: PropTypes.func,
     className: PropTypes.string,
     options: PropTypes.array,
   };
 
+  static defaultProps = {
+    onChange: Function.prototype,
+  };
+
   render() {
-    const {options, className} = this.props;
+    const {options, className, onChange} = this.props;
     const list = options.map(item => {
       return ({
         value: item.value,
-        label: <div><img src={item.img}/></div>
+        label: <img src={item.img}/>,
+        suffix: item.suffix
       })
     });
 
@@ -38,6 +44,7 @@ export class FlagSelect extends PureComponent {
             IndicatorSeparator: null,
             DropdownIndicator: () => <Expand/>
           }}
+          onChange={onChange}
         />
       </div>
     )
