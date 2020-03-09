@@ -7,6 +7,13 @@
   display: flex;
   justify-content: space-between;
 
+  height: 60px;
+  box-sizing: border-box;
+
+  @media (max-width: $lg) {
+    padding: 13px 10px;
+  }
+
   &__label {
     display: flex;
     align-items: center;
@@ -31,6 +38,11 @@
     font-style: normal;
     &:focus {
       outline: none;
+    }
+    @media (max-width: $md) {
+      font-size: 18px;
+      line-height: 23px;
+      max-width: 40%;
     }
   }
 }

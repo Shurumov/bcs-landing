@@ -7,40 +7,79 @@
     line-height: 40px;
     font-weight: normal;
   }
+
   &__content {
     display: flex;
     justify-content: space-between;
+    @media (max-width: $lg) {
+      flex-wrap: wrap;
+    }
   }
+
   &__left {
     flex-grow: 1;
-    max-width: 485px;
+    width: 485px;
+    margin-right: 50px;
+    @media (max-width: $xl) {
+      width: 426px;
+    }
+    @media (max-width: $lg) {
+      max-width: 100%;
+      margin-right: 0;
+    }
   }
 
   &__right {
     flex-grow: 1;
-    max-width: 485px;
+    width: 485px;
+    @media (max-width: $xl) {
+      width: 426px;
+    }
+    @media (max-width: $lg) {
+      width: 100%;
+    }
   }
 
   &__result {
-    width: 100%;
     height: 60px;
+    box-sizing: border-box;
     border-bottom: 1px solid $border-gray;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 
+    @media (max-width: $lg) {
+      margin-top: 20px;
+      padding: 14px 10px;
+      border: 1px solid $border-gray;
+      height: auto;
+      display: flex;
+      align-items: center;
+    }
+
     &-label {
+      width: 50%;
       font-size: 12px;
       line-height: 140%;
       color: $text-gray;
     }
+
     &-value {
+      width: 50%;
       font-size: 24px;
       line-height: 30px;
+      text-align: right;
     }
 
     &_total {
       color: $primary-navy-blue;
+    }
+  }
+
+  &__button {
+    margin-top: 68px;
+    @media (max-width: $lg) {
+      margin: 68px auto 0;
     }
   }
 }

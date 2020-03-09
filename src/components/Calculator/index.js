@@ -101,25 +101,25 @@ export class Calculator extends PureComponent {
               <div className="calculator__right">
                 <ResultData
                   label="Комиссия за сделку и вывод валюты5"
-                  value={String(commission).replace('.',',')}
+                  value={String(commission).replace('.', ',')}
                   suffix={suffix}
                 />
                 <ResultData
                   className="mt-5"
                   label="Курс с учетом комиссии"
-                  value={String(courseCommission).replace('.',',')}
+                  value={String(courseCommission).replace('.', ',')}
                   suffix={suffix}
                 />
                 <ResultData
                   className="mt-5 calculator__result_total"
                   label="Общая сумма сделки*"
-                  value={String(total).replace('.',',')}
+                  value={String(total).replace('.', ',')}
                   suffix={suffix}
                 />
               </div>
             </div>
             <Button
-              className="mt-17"
+              className="calculator__button"
             >
               Узнать больше
             </Button>
