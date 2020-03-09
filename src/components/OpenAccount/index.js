@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types'
 import cn from 'classnames';
 
-import { InputForm, Button } from 'components'
+import { InputForm, Button, Checkbox } from 'components'
 
 import './open-account.scss'
 
@@ -56,6 +56,12 @@ export class OpenAccount extends Component {
                   label="E-mail"
                   name="email"
                   isRequired
+                />
+                <Checkbox
+                  className="mt-5"
+                  label="Согласен на передачу обработку"
+                  textLink="персональных данных"
+                  link="https://www.google.com/"
                 />
                 <Button
                   className="open-account__form-submit"
