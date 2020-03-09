@@ -14,16 +14,18 @@ export class InputField extends PureComponent {
     name: PropTypes.string,
     type: PropTypes.string,
     onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    value: PropTypes.number,
   };
 
   static defaultProps = {
     Node: <Fragment/>,
-    onChange: Function.prototype
+    onChange: Function.prototype,
+    disabled: false,
   };
 
   render() {
-    const {style, className, Node, label, type, suffix} = this.props;
-
+    const {style, className, Node, label, type, suffix, disabled, value, onChange} = this.props;
     return (
       <div
         className={cn("input-field", className)}
@@ -42,6 +44,16 @@ export class InputField extends PureComponent {
           thousandSeparator=" "
           decimalSeparator=","
           inputType={type}
+          disabled={disabled}
+          value={value}
+          onChangeEvent={e=>{
+            const newValue = e.target.value
+              .replace(` ${suffix}`, '')
+              .replace(' ','')
+              .replace(',','.')
+            ;
+            onChange(Number(newValue))
+          }}
         />
       </div>
     )

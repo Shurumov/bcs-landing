@@ -22,7 +22,8 @@ export class FlagSelect extends PureComponent {
       return ({
         value: item.value,
         label: <img src={item.img}/>,
-        suffix: item.suffix
+        suffix: item.suffix,
+        buy: item.buy,
       })
     });
 

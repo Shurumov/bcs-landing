@@ -2,36 +2,43 @@
   {
     "value": "USD",
     "img": "/images/countries/usd.svg",
-    "suffix": "&#8381;₽"
+    "suffix": "$",
+    "buy": 63.2725
   },
   {
     "value": "EUR",
     "img": "/images/countries/eur.svg",
-    "suffix": "€"
+    "suffix": "€",
+    "buy": 63.2725
   },
   {
     "value": "CNY",
     "img": "/images/countries/cny.svg",
-    "suffix": "¥"
+    "suffix": "¥",
+    "buy": 63.2725
   },
   {
     "value": "GPB",
     "img": "/images/countries/gpb.svg",
-    "suffix": "£"
+    "suffix": "£",
+    "buy": 63.2725
   },
   {
     "value": "JPN",
     "img": "/images/countries/jpn.svg",
-    "suffix": "¥"
+    "suffix": "¥",
+    "buy": 63.2725
   },
   {
     "value": "TRY",
     "img": "/images/countries/try.svg",
-    "suffix": "L"
+    "suffix": "L",
+    "buy": 63.2725
   },
   {
     "value": "KAZ",
     "img": "/images/countries/kaz.svg",
-    "suffix": "₸"
+    "suffix": "₸",
+    "buy": 63.2725
   }
 ]

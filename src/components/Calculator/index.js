@@ -27,30 +27,47 @@ export class Calculator extends PureComponent {
   };
 
   state = {
-    course: 0,
+    course: data[0].buy,
     sum: 0,
     commission: 0,
-    courseCommission: 0,
+    courseCommission: (data[0].buy * 1.01).toFixed(4),
     total: 0,
     suffix: '$'
   };
 
-  changeSuffix = ({suffix}) => {
-    this.setState({
-      suffix
-    })
+  changeCurrency = ({suffix, buy}) => {
+    const courseCommission = (buy * 1.01).toFixed(4);
+    this.setState(state => ({
+      suffix,
+      course: buy,
+      courseCommission: courseCommission,
+      total: (courseCommission * state.sum).toFixed(2),
+      commission: ((courseCommission * state.sum) * 0.01).toFixed(0)
+    }));
   };
 
-  setValue = ({value, key}) => {
-    this.setState({
-      [key]: value,
+  setSum = (value) => {
+    this.setState(state => {
+      const courseCommission = (state.course * 1.01).toFixed(4);
+      return ({
+        sum: value,
+        courseCommission: courseCommission,
+        total: (courseCommission * state.sum).toFixed(2),
+        commission: ((courseCommission * state.sum) * 0.01).toFixed(0)
+      })
     })
   };
 
   render() {
-    const {suffix} = this.state;
+    let {
+      suffix,
+      course,
+      sum,
+      commission,
+      courseCommission,
+      total,
+    } = this.state;
     const {className} = this.props;
-
     return (
       <div className="container">
         <div className="content">
@@ -63,11 +80,13 @@ export class Calculator extends PureComponent {
                 <InputField
                   suffix={suffix}
                   label="Валюта"
+                  disabled
+                  value={course}
                   Node={
                     <FlagSelect
                       className="ml-2"
                       options={data}
-                      onChange={this.changeSuffix}
+                      onChange={this.changeCurrency}
                     />
                   }
                 />
@@ -75,25 +94,26 @@ export class Calculator extends PureComponent {
                   suffix="$"
                   className="mt-5"
                   label="Сумма покупки"
+                  value={sum}
+                  onChange={this.setSum}
                 />
               </div>
               <div className="calculator__right">
                 <ResultData
                   label="Комиссия за сделку и вывод валюты5"
-                  value="12 500"
+                  value={String(commission).replace('.',',')}
                   suffix={suffix}
                 />
                 <ResultData
                   className="mt-5"
                   label="Курс с учетом комиссии"
-                  value="63,3225"
+                  value={String(courseCommission).replace('.',',')}
                   suffix={suffix}
-
                 />
                 <ResultData
                   className="mt-5 calculator__result_total"
                   label="Общая сумма сделки*"
-                  value="63,3225"
+                  value={String(total).replace('.',',')}
                   suffix={suffix}
                 />
               </div>
