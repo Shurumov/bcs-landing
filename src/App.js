@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header, Slider, Currencies, Calculator, NewsList, Reasons, OpenAccount} from 'components'
+import {Header, Slider, Currencies, Calculator, NewsList, Reasons, OpenAccount, Footer} from 'components'
 
 import 'styles/index.scss';
 
@@ -23,10 +23,7 @@ function App() {
       <OpenAccount
         className="block_separate"
       />
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <Footer/>
     </div>
   );
 }

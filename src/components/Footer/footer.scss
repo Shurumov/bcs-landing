@@ -1,0 +1,19 @@
+@import "styles/index";
+
+.footer {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  &__logo {
+    margin-bottom: 40px;
+  }
+  p {
+    margin-top: 10px;
+    color: $text-gray;
+    opacity: 0.6;
+    font-size: 11px;
+    line-height: 122%;
+    @media (max-width: $md) {
+      
+    }
+  }
+}
