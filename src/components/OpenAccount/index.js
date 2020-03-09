@@ -12,7 +12,7 @@ export class OpenAccount extends Component {
   };
 
   render() {
-    const {className} = this.props;
+    const {className } = this.props;
     return (
       <div className={cn("container open-account_wrapper", className)}>
         <div className="content">
@@ -25,8 +25,9 @@ export class OpenAccount extends Component {
               <form
                 className="open-account__form"
                 onSubmit={(e) => {
+                  const {showModal, MODAL_TYPES } = this.props;
                   e.preventDefault();
-                  console.log("форма отправлена");
+                  showModal(MODAL_TYPES.confirm)
                 } }
               >
                 <InputForm

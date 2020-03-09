@@ -41,8 +41,7 @@ const BulletComponent = ({index, activeIndex, item, onSlideChange}) => {
   )
 };
 
-const oneSlide = ({item, order}) => {
-
+const oneSlide = ({item, order, showModal, MODAL_TYPES}) => {
   return (
     <div
       className={cn('slider__slide', colorsClass[order])}
@@ -63,6 +62,7 @@ const oneSlide = ({item, order}) => {
             ))}
           </ul>
           <Button
+            onClick={() => showModal(MODAL_TYPES.form)}
             className="mt-7 slider__left-button"
           >
             Консультация
@@ -78,6 +78,7 @@ const oneSlide = ({item, order}) => {
             />
           ))}
           <Button
+            onClick={showModal}
             className="slider__right-button"
           >
             Консультация
@@ -90,7 +91,9 @@ const oneSlide = ({item, order}) => {
 
 export class Slider extends PureComponent {
   static propTypes = {
-    style: PropTypes.object
+    style: PropTypes.object,
+    showModal: PropTypes.func,
+    hideModal: PropTypes.func,
   };
 
   state = {
@@ -116,7 +119,7 @@ export class Slider extends PureComponent {
   };
 
   render() {
-    const {style} = this.props;
+    const {style, showModal, MODAL_TYPES} = this.props;
     const {activeIndex} = this.state;
     return (
       <div
@@ -132,7 +135,7 @@ export class Slider extends PureComponent {
             mobileTouch={true}
           >
             {(data || []).map((item, order) => (
-              oneSlide({item, order})
+              oneSlide({item, order, showModal, MODAL_TYPES})
             ))}
           </AwesomeSlider>
           <div className="content">

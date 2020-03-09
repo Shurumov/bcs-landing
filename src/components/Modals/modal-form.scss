@@ -1,0 +1,24 @@
+@import "styles/index";
+
+.modal-form {
+  max-width: 384px;
+  @media (max-width: $lg) {
+    max-width: 294px;
+  }
+  @media (max-width: $md) {
+    max-width: 344px;
+  }
+  @media (max-width: $sm) {
+    max-width: 280px;
+  }
+  &__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  &__button {
+    margin: 70px auto 0;
+    @media (max-width: $lg) {
+      margin: 50px auto 0;
+    }
+  }
+}

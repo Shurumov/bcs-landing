@@ -10,6 +10,7 @@ export class InputForm extends PureComponent {
     label: PropTypes.string,
     name: PropTypes.string,
     isRequired: PropTypes.bool,
+    style: PropTypes.object,
   };
 
   state = {
@@ -23,10 +24,10 @@ export class InputForm extends PureComponent {
   };
 
   render() {
-    const {className, label, name, isRequired} = this.props;
+    const {className, label, name, isRequired, style} = this.props;
     const {value} = this.state;
     return (
-      <div className={cn("input-form", className)}>
+      <div className={cn("input-form", className)} style={style}>
         <input
           className="input-form__field"
           type="text"

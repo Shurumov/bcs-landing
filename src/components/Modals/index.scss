@@ -1,0 +1,40 @@
+@import "styles/index";
+
+.modal {
+  &__window {
+    padding: 60px 126px;
+    display: inline-block;
+    width: auto;
+    position: relative;
+    cursor: auto;
+    outline: none;
+    background-color: #E7EAEF;
+    @media (max-width: $lg) {
+      padding: 60px 157px;
+    }
+    @media (max-width: $md) {
+      padding: 60px 86px;
+    }
+    @media (max-width: $sm) {
+      padding: 60px 10px;
+    }
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    background: $white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}

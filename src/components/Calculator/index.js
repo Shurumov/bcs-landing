@@ -67,7 +67,7 @@ export class Calculator extends PureComponent {
       courseCommission,
       total,
     } = this.state;
-    const {className} = this.props;
+    const {className, showModal, MODAL_TYPES} = this.props;
     return (
       <div className="container">
         <div className="content">
@@ -120,6 +120,7 @@ export class Calculator extends PureComponent {
             </div>
             <Button
               className="calculator__button"
+              onClick={() => showModal(MODAL_TYPES.form)}
             >
               Узнать больше
             </Button>
