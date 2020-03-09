@@ -6,12 +6,12 @@ import AwesomeSlider from 'react-awesome-slider';
 import {ReactComponent as ArrowActive} from './arrow-acive.svg'
 import {ReactComponent as ArrowDisabled} from './arrow-disabled.svg'
 import {ReactComponent as ArrowUp} from './arrow-up.svg'
-import data from './data'
+import dataCurrencies from './data'
 
 import 'react-awesome-slider/dist/styles.css';
 import './currencies-slider.scss'
 
-const oneSlide = ({currency, buy, sell, link}) => {
+const oneSlideDefault = ({currency, buy, sell, link}) => {
   return (
     <div className="currencies-slider__row" key={currency}>
       <div className="currencies-slider__cell">
@@ -35,7 +35,15 @@ const oneSlide = ({currency, buy, sell, link}) => {
 
 export class CurrenciesSlider extends PureComponent {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    oneSlide: PropTypes.func,
+    renderList: PropTypes.array,
+    height: PropTypes.string,
+    displaySellBuy: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    oneSlide: Function.prototype,
   };
 
   state = {
@@ -53,6 +61,8 @@ export class CurrenciesSlider extends PureComponent {
   };
 
   toggleSlide = () => {
+    const {renderList} = this.props;
+    const data = renderList || dataCurrencies;
     const {activeIndex} = this.state;
     const newIndex = activeIndex === data.length - 1 ? 0 : activeIndex + 1;
     this.setState({
@@ -65,40 +75,44 @@ export class CurrenciesSlider extends PureComponent {
   };
 
   render() {
-    const { className } = this.props;
+    const {className, oneSlide, renderList, height, displaySellBuy} = this.props;
     const {activeIndex} = this.state;
     const isDisableLeftArrow = activeIndex === 0;
+    const data = renderList || dataCurrencies;
+
     const isDisableRightArrow = activeIndex === data.length - 1;
 
     return (
       <div className={cn("currencies-slider", className)}>
-        <div className="currencies-slider__row">
-          <div className="currencies-slider__cell"/>
+        {displaySellBuy && (
+          <div className="currencies-slider__row">
+            <div className="currencies-slider__cell"/>
 
-          <div className="currencies-slider__cell">
-            <div style={{width: '23px', height: 0}}/>
-            <div className="currencies-slider__cell_th">
-              покупка
+            <div className="currencies-slider__cell">
+              <div style={{width: '23px', height: 0}}/>
+              <div className="currencies-slider__cell_th">
+                покупка
+              </div>
+            </div>
+            <div className="currencies-slider__cell">
+
+              <div className="currencies-slider__cell_th">
+                продажа
+              </div>
             </div>
           </div>
-          <div className="currencies-slider__cell">
-
-            <div className="currencies-slider__cell_th">
-              продажа
-            </div>
-          </div>
-        </div>
+        )}
         <AwesomeSlider
           selected={activeIndex}
           bullets={false}
           style={{
-            height: '80px'
+            height: height ? height : '80px'
           }}
           organicArrows={false}
           onTransitionEnd={({currentIndex}) => this.onSlideChange(currentIndex)}
           mobileTouch={true}
         >
-          {data.map(item => (oneSlide(item)))}
+          {data.map(item => (oneSlide(item) || oneSlideDefault(item)))}
         </AwesomeSlider>
         <div className="currencies-slider__arrows">
           <div

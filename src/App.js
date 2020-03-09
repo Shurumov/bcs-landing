@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Slider, Currencies, Calculator } from 'components'
+import { Header, Slider, Currencies, Calculator, NewsList } from 'components'
 
 import 'styles/index.scss';
 
@@ -12,6 +12,9 @@ function App() {
         className="mt-25"
       />
       <Calculator
+        className="mt-25"
+      />
+      <NewsList
         className="mt-25"
       />
       <br/>

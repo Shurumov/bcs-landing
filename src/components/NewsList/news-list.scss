@@ -1,0 +1,89 @@
+@import "styles/index";
+
+.news-list {
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  &_wrapper {
+    background-color: $gray;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 36px;
+    line-height: 40px;
+    color: $main-color;
+    font-weight: normal;
+  }
+
+  &__content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: none;
+    @media (max-width: $md) {
+      display: block;
+    }
+  }
+
+  &__item {
+    margin-right: 24px;
+    width: 282px;
+    border-radius: 5px;
+    background-color: $white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &:last-of-type {
+      margin-right: 0;
+      display: block;
+    }
+
+    @media (max-width: $lg) and (min-width: $md + 1){
+      &:last-of-type {
+        display: none;
+      }
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: $xl) {
+      width: 216px;
+    }
+
+    &-img {
+      width: 100%;
+    }
+
+    &-description {
+      padding: 20px;
+    }
+
+    &-date {
+      font-size: 9px;
+      line-height: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    &-title {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 123%;
+      color: #333;
+      text-decoration: underline;
+      @media (max-width: $xl) {
+        font-size: 12px;
+      }
+    }
+  }
+}
