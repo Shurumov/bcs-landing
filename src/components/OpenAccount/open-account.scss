@@ -1,0 +1,77 @@
+@import "styles/index";
+
+.open-account {
+  padding-top: 60px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-image: url('/images/form-bg.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 120px right 20%;
+
+  @media (max-width: $xl) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (max-width: $lg) {
+    background-image: none;
+  }
+  &_wrapper {
+    background-color: $gray;
+  }
+  &__left {
+    width: 384px;
+    margin-right: 24px;
+    @media (max-width: $xl) {
+      width: auto;
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: $md) {
+      width: auto;
+      display: block;
+    }
+  }
+  &__right {
+    width: 384px;
+    @media (max-width: $xl) {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+  &__form {
+    width: 100%;
+    @media (max-width: $xl) {
+      width: 384px;
+      margin: 0 auto;
+    }
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+    &-submit {
+      margin-top: 70px;
+      @media (max-width: $lg) {
+        margin: 30px auto 0;
+      }
+    }
+  }
+  &__title {
+    font-size: 36px;
+    line-height: 40px;
+    font-style: normal;
+    @media (max-width: $xl) {
+      width: 330px;
+      margin-right: 40px;
+    }
+  }
+  &__subtitle{
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 164%;
+    color: #333;
+    @media (max-width: $xl) {
+      width: 256px;
+    }
+  }
+}
