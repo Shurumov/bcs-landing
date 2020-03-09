@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Slider, Currencies, Calculator, NewsList } from 'components'
+import { Header, Slider, Currencies, Calculator, NewsList, Reasons } from 'components'
 
 import 'styles/index.scss';
 
@@ -9,13 +9,16 @@ function App() {
       <Header/>
       <Slider/>
       <Currencies
-        className="mt-25"
+        className="block_separate"
       />
       <Calculator
-        className="mt-25"
+        className="block_separate"
       />
       <NewsList
-        className="mt-25"
+        className="block_separate"
+      />
+      <Reasons
+        className="block_separate"
       />
       <br/>
       <br/>

@@ -271,6 +271,7 @@
 }
 
 .awssld {
+  overflow: hidden;
   height: 520px;
   @media (max-width: $md) {
     height: 740px;

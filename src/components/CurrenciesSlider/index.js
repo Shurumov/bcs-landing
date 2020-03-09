@@ -40,10 +40,12 @@ export class CurrenciesSlider extends PureComponent {
     renderList: PropTypes.array,
     height: PropTypes.string,
     displaySellBuy: PropTypes.bool,
+    displayArrows: PropTypes.bool,
   };
 
   static defaultProps = {
     oneSlide: Function.prototype,
+    displayArrows: true,
   };
 
   state = {
@@ -75,7 +77,7 @@ export class CurrenciesSlider extends PureComponent {
   };
 
   render() {
-    const {className, oneSlide, renderList, height, displaySellBuy} = this.props;
+    const {className, oneSlide, renderList, height, displaySellBuy, displayArrows} = this.props;
     const {activeIndex} = this.state;
     const isDisableLeftArrow = activeIndex === 0;
     const data = renderList || dataCurrencies;
@@ -114,34 +116,36 @@ export class CurrenciesSlider extends PureComponent {
         >
           {data.map(item => (oneSlide(item) || oneSlideDefault(item)))}
         </AwesomeSlider>
-        <div className="currencies-slider__arrows">
-          <div
-            className="currencies-slider__arrows-left"
-            tabIndex={0}
-            onClick={isDisableLeftArrow ? () => {
-            } : () => this.onSlideChange(activeIndex - 1)}
-          >
-            {isDisableLeftArrow ?
-              <ArrowDisabled/> :
-              <ArrowActive
-                style={this.transformArrow}
-              />
-            }
+        {displayArrows && (
+          <div className="currencies-slider__arrows">
+            <div
+              className="currencies-slider__arrows-left"
+              tabIndex={0}
+              onClick={isDisableLeftArrow ? () => {
+              } : () => this.onSlideChange(activeIndex - 1)}
+            >
+              {isDisableLeftArrow ?
+                <ArrowDisabled/> :
+                <ArrowActive
+                  style={this.transformArrow}
+                />
+              }
+            </div>
+            <div
+              className="currencies-slider__arrows-right"
+              tabIndex={0}
+              onClick={isDisableRightArrow ? () => {
+              } : () => this.onSlideChange(activeIndex + 1)}
+            >
+              {isDisableRightArrow ?
+                <ArrowDisabled
+                  style={this.transformArrow}
+                /> :
+                <ArrowActive/>
+              }
+            </div>
           </div>
-          <div
-            className="currencies-slider__arrows-right"
-            tabIndex={0}
-            onClick={isDisableRightArrow ? () => {
-            } : () => this.onSlideChange(activeIndex + 1)}
-          >
-            {isDisableRightArrow ?
-              <ArrowDisabled
-                style={this.transformArrow}
-              /> :
-              <ArrowActive/>
-            }
-          </div>
-        </div>
+        )}
       </div>
     )
   }

@@ -18,6 +18,13 @@
   }
 }
 
+.block_separate {
+  margin-top: 100px;
+  @media (max-width: $lg) {
+    margin-top: 40px;
+  }
+}
+
 body, html {
   font-family: "Geometria", sans-serif;
 }
